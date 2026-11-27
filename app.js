@@ -22,3 +22,6 @@ const refs=[[0],[1],[1,2],[3],[4],[4],[3],[3]][Number($('#indicator').value)];
 for(const index of refs){const a=el('a',index===1?'Plano de 2024':index===2?'Plano de 2026':'Consultar fonte');a.href=urls[index];chart.append(a,' ')}}
 $('#indicator').onchange=draw;draw();
 for(const section of document.querySelectorAll('main section[id]')){let h=section.querySelector('h2,h1');if(!h)continue;let a=el('a',section.id==='inicio'?'Início':h.textContent);a.href='#'+section.id;a.onclick=()=>$('#menu').open=false;$('#sections').append(a)}
+
+const contribution=document.querySelector('#contribution-email');
+if(contribution) contribution.addEventListener('submit',e=>{e.preventDefault();const d=new FormData(contribution);location.href='mailto:prod@diasrobson.com?subject='+encodeURIComponent('Contribuição à carta Audiovisual Plural')+'&body='+encodeURIComponent('Nome: '+d.get('nome')+'\n\n'+d.get('texto'));});
